@@ -1,0 +1,31 @@
+name: Build Snake Turbo Windows
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Installer Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Installer dependances
+      run: |
+        pip install pygame pyinstaller
+
+    - name: Compiler exe
+      run: |
+        pyinstaller --onefile --noconsole --icon=assets/icon.png snake.py
+
+    - name: Upload exe
+      uses: actions/upload-artifact@v3
+      with:
+        name: snake-turbo-windows
+        path: dist/snake.exe
