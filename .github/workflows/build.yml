@@ -25,7 +25,7 @@ jobs:
         pyinstaller --onefile --noconsole --icon=assets/icon.png snake.py
 
     - name: Upload exe
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: snake-turbo-windows
         path: dist/snake.exe
