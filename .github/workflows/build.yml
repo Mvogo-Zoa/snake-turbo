@@ -22,7 +22,7 @@ jobs:
 
     - name: Compiler exe
       run: |
-        pyinstaller --onefile --noconsole --icon=assets/icon.png snake.py
+        pyinstaller --onefile --noconsole  snake.py
 
     - name: Upload exe
       uses: actions/upload-artifact@v4
