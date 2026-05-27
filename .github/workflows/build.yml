@@ -2,7 +2,7 @@ name: Build Snake Turbo Windows
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build-windows:
@@ -29,3 +29,4 @@ jobs:
       with:
         name: snake-turbo-windows
         path: dist/snake.exe
+
