@@ -7,26 +7,22 @@ on:
 jobs:
   build-windows:
     runs-on: windows-latest
-
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Installer Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
+      - name: Installer Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
 
-    - name: Installer dependances
-      run: |
-        pip install pygame pyinstaller
+      - name: Installer dependances
+        run: pip install pygame pyinstaller
 
-    - name: Compiler exe
-      run: |
-        pyinstaller --onefile --noconsole  snake.py
+      - name: Compiler exe
+        run: pyinstaller --onefile --noconsole flappy.py
 
-    - name: Upload exe
-      uses: actions/upload-artifact@v4
-      with:
-        name: snake-turbo-windows
-        path: dist/snake.exe
-
+      - name: Upload exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: FlappyBird
+          path: dist/flappy.exe
